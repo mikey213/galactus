@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>movieimg.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../", thisFile = "courses/courses/cscc09f15/dennism7/a3/public/js/views/movieimgjs", defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>movieimg.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">galactus</span> <span class="o">=</span>  <span class="nx">galactus</span> <span class="o">||</span> <span class="p">{};</span>
+
+<span class="nx">galactus</span><span class="p">.</span><span class="nx">MovieImg</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Render the view</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">()));</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>Bind events</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;change #file&#39;</span><span class="o">:</span> <span class="s1">&#39;selectImage&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;dragover .poster&#39;</span><span class="o">:</span> <span class="s1">&#39;dragImage&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;drop .poster&#39;</span><span class="o">:</span> <span class="s1">&#39;dropImage&#39;</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>Resize image in the format and quality specified</p>
+
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">source:</span>
+      <span class="dox_type">[Object]</span>
+      <span>image content</span>
+    </div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">type:</span>
+      <span class="dox_type">[String]</span>
+      <span>image format</span>
+    </div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">quality:</span>
+      <span class="dox_type">[Integer]</span>
+      <span>image quality between 0 and 1</span>
+    </div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">callback:</span>
+      <span class="dox_type">[Function]</span>
+      <span>callback function after resizing is done</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">resizeImage</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">quality</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">type</span> <span class="o">=</span> <span class="nx">type</span> <span class="o">||</span> <span class="s1">&#39;image/jpeg&#39;</span><span class="p">,</span>
+        <span class="nx">quality</span> <span class="o">=</span> <span class="nx">quality</span> <span class="o">||</span> <span class="mf">0.95</span><span class="p">;</span>
+
+        <span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">(),</span> <span class="nx">MAX_HEIGHT</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="nx">MAX_WIDTH</span> <span class="o">=</span> <span class="mi">450</span><span class="p">;</span>
+
+        <span class="nx">image</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">ratio</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">min</span><span class="p">([</span> <span class="nx">MAX_WIDTH</span> <span class="o">/</span> <span class="nx">image</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">MAX_HEIGHT</span> <span class="o">/</span> <span class="nx">image</span><span class="p">.</span><span class="nx">height</span> <span class="p">]);</span>
+            <span class="nx">image</span><span class="p">.</span><span class="nx">width</span> <span class="o">*=</span> <span class="nx">ratio</span><span class="p">;</span>
+            <span class="nx">image</span><span class="p">.</span><span class="nx">height</span> <span class="o">*=</span> <span class="nx">ratio</span><span class="p">;</span>
+
+            <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">);</span>
+            <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">image</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+            <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">image</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+
+            <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+            <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">image</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">image</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">callback</span><span class="p">(</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">quality</span><span class="p">));</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">source</span><span class="p">;</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>Read image from filesystem</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">readImage</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="sr">/(gif|jpeg|png)$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">type</span><span class="p">))</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+            <span class="kd">var</span> <span class="nx">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileReader</span><span class="p">();</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>callback when read operation is finished</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+            <span class="nx">reader</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<p>callback when resize operation is finished</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+                <span class="nx">self</span><span class="p">.</span><span class="nx">resizeImage</span><span class="p">(</span><span class="nx">reader</span><span class="p">.</span><span class="nx">result</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">image</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">self</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">image</span><span class="p">;</span>
+                    <span class="nx">self</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;poster&#39;</span><span class="p">,</span> <span class="nx">image</span><span class="p">);</span>
+                <span class="p">});</span>
+            <span class="p">};</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>read image file</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+            <span class="nx">reader</span><span class="p">.</span><span class="nx">readAsDataURL</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<p>Get image after selecting it</p>
+
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">e:</span>
+      <span class="dox_type">[Object]</span>
+      <span>information about the fired event</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">selectImage</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">readImage</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
+</div>
+<p>Handle image while dragging it</p>
+
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">e:</span>
+      <span class="dox_type">[Object]</span>
+      <span>information about the fired event</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">dragImage</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">originalEvent</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">dropEffect</span> <span class="o">=</span> <span class="s1">&#39;copy&#39;</span><span class="p">;</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11">&#182;</a>
+</div>
+<p>Handle image after dropping it</p>
+
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">e:</span>
+      <span class="dox_type">[Object]</span>
+      <span>information about the fired event</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">dropImage</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">originalEvent</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">readImage</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">originalEvent</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

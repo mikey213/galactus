@@ -1,0 +1,334 @@
+/* General */
+html {
+    min-height: 100%;
+}
+body {
+    background-color: #000;
+    color: #fff;
+    padding-bottom: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 70px;
+}
+input[type=text] {
+    color: #000;
+}
+q {
+    /*quotes: "“" "”" "‘" "’";*/
+}
+textarea {
+    max-width: 100%;
+}
+#content > div {
+    overflow: hidden;
+}
+#content > .alert {
+    position: relative;
+    z-index: 10;
+}
+.help-error {
+    color: #a00;
+}
+.review-swatch {
+    display: block;
+    position: relative;
+}
+.review-swatch img {
+    display: block;
+    max-width: 84px;
+    width: 100%;
+}
+.review-swatch span {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    height: 100%;
+    padding-top: 30%;
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    top: 0;
+    white-space: nowrap;
+    width: 100%;
+}
+
+/* Header view */
+.header .navbar .container {
+    max-width: 85%;
+}
+.header .navbar .app-name {
+    font-size: 125%;
+}
+.header .navbar li {
+    position: relative;
+}
+.header .navbar .active > a {
+    background-color: #000;
+    color: #fff;
+}
+.header .navbar .dropdown-menu {
+    left: 0;
+}
+.header .navbar .sign-in .dropdown-menu, .header .navbar .sign-up .dropdown-menu {
+    min-width: 200px;
+    padding: 15px;
+}
+@media (max-width: 768px) {
+    /* hide dropdown for mobile-tablet screens */
+    .header .navbar .dropdown-menu {
+        display: none;
+    }
+}
+.header .navbar .dropdown-header {
+    color: #000;
+    font-size: 16px;
+    padding: 10px 20px 3px;
+}
+.header .navbar label {
+    color: #000;
+    margin: 0;
+}
+.header .navbar .browse-movies label {
+    padding: 3px 20px;
+}
+.header .navbar label > input {
+    margin: 0 5px 0 0;
+    padding-right: 5px;
+}
+.header .navbar .sign-out span {
+    display: block;
+    font-weight: bold;
+    color: #000;
+    padding: 10px 0;
+    text-align: center;
+}
+/* Sticky Footer */
+.footer {
+    background-color: #000;
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    position: fixed;
+    text-align: right;
+    width: 100%;
+}
+
+/* Home view */
+#home {
+    background: #433a33  url('../img/sky.jpg') no-repeat 0 0;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+@media (min-width: 768px) {
+    #home .row > div {
+        padding: 0;
+    }
+    #home .row > div:nth-child(1) {
+        text-align: right;
+    }
+    #home .row > div:nth-child(2) {
+        text-align: left;
+    }
+}
+#home h3 {
+    font-family: Verdana, Geneva, Helvetica;
+    font-size: 36pt;
+    margin: 160px auto 20px;
+    text-align: center;
+    text-shadow: 1px 1px #000;
+}
+#home a {
+    border-radius: 4px;
+    margin: 10px 6px;
+    max-width: 200px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    width: 180px;
+}
+#home a .bg {
+    background-color: #666;
+    background-image: url('../img/movie-clip.png');
+    background-position: 10px 5px;
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    height: 100%;
+    opacity: 0.5;
+    position: absolute;
+    width: 100%;
+}
+#home a:hover .bg {
+    background-color: #cd853f;
+}
+#home a span {
+    color: #fff;
+    display: block;
+    float: right;
+    font-family: 'Arvo', serif;
+    margin: 10px 10px 10px 0;
+    white-space: pre-wrap;
+    width: 100px;
+}
+
+/* About view */
+#about {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+}
+#about h2 {
+    padding-left: 15px;
+}
+#about .app-name {
+    color: #996;
+}
+#about .blurb {
+    font-style: italic;
+    margin: 20px 0;
+}
+#about img {
+    border: 1px solid #fff;
+}
+
+/* Browse view */
+#browse .thumbnail {
+    background-color: transparent;
+    border-color: #25383C;
+    border-width: 1px;
+    margin-right: 5px;
+    padding: 0;
+    position: relative;
+}
+#browse .thumbnail a {
+    color: inherit;
+    text-decoration: none;
+}
+#browse .thumbnail .details {
+    background: #181818;
+    color: #fff;
+    display: flex;
+    font-size: 80%;
+}
+#browse .thumbnail .review-swatch {
+    flex: 0 1 30%;
+}
+#browse .thumbnail .more {
+    flex: 0 1 70%;
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#browse .thumbnail .more h4 {
+    color: #996;
+    font-family: 'Arvo', serif;
+    margin: 2px 0;
+    overflow: inherit;
+    text-overflow: inherit;
+}
+#browse .thumbnail .more h4 > span {
+    color: #fff;
+    font-size: 80%;
+}
+#browse .thumbnail .more > span {
+    font-weight: bold;
+}
+#browse .thumbnail .more > span:after {
+    content: ':';
+}
+
+/* Details view */
+#details > div:nth-child(2) .form-group {
+    max-width: 450px;
+    overflow: hidden;
+}
+#details > div:nth-child(2) .review-swatch {
+    float: left;
+}
+#details > div:nth-child(2) button {
+    float: right;
+    margin: 2px;
+}
+#details .poster {
+    margin-bottom: 10px;
+    max-height: 300px;
+    max-width: 450px;
+    overflow: hidden;
+}
+#details .instruction {
+    max-width: 375px; 
+    overflow: hidden;
+}
+#details .instruction > span {
+    display: inline-block;
+    font-style: italic;
+    margin-bottom: 10px;
+    padding-right: 5px;
+}
+#details .instruction .btn {
+    float: right;
+    overflow: hidden;
+    position: relative;
+}
+#details .instruction .btn input {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/* ReviewView view */
+#reviews .panel {
+    background: beige;
+    border: 2px solid #093;
+    border-radius: 5px;
+    color: #000;
+    margin-bottom: 10px;
+    padding: 7px 5px;
+}
+.review-summary {
+    color: #d80000;
+    display: inline-block;
+    font-weight: bold;
+    font-style: italic;
+}
+#reviews .panel .review-summary {
+    margin-left: 15px;
+}
+@media (min-width: 768px) {
+    #reviews .form-inline .form-group {
+        margin-bottom: 15px;
+    }
+}
+
+/* ReviewsThumbs view */
+#reviews #thumbnails {
+    margin-top: 20px;
+}
+#reviews #thumbnails > div {
+    padding-left: 0;
+}
+#reviews .thumbnail {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+#reviews .thumbnail .panel .reviewText {
+    font-weight: bold;
+}
+#reviews .thumbnail .caption {
+    color: #fff;
+    padding: 0 5px;
+}
+#reviews .thumbnail .caption .reviewName {
+    font-style: italic;
+    margin-top: 5px;
+}

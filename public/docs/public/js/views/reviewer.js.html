@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>reviewer.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../", thisFile = "courses/courses/cscc09f15/dennism7/a3/public/js/views/reviewerjs", defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>reviewer.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">galactus</span> <span class="o">=</span>  <span class="nx">galactus</span> <span class="o">||</span> <span class="p">{};</span>
+
+<span class="nx">galactus</span><span class="p">.</span><span class="nx">Reviewer</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Render the view</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">toJSONC</span><span class="p">()));</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>Bind events</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;click #review&#39;</span><span class="o">:</span> <span class="s1">&#39;review&#39;</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>Save review</p>
+
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">e:</span>
+      <span class="dox_type">[Object]</span>
+      <span>information about the event</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">review</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+      
+        <span class="kd">var</span> <span class="nx">review</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">galactus</span><span class="p">.</span><span class="nx">Review</span><span class="p">({</span>
+            <span class="nx">freshness</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;[name=freshness]:checked&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
+            <span class="nx">reviewText</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">escape</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;[name=reviewText]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">().</span><span class="nx">trim</span><span class="p">()),</span>
+            <span class="nx">reviewName</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">escape</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;[name=reviewName]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">().</span><span class="nx">trim</span><span class="p">()),</span>
+            <span class="nx">reviewAffil</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">escape</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;[name=reviewAffil]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">().</span><span class="nx">trim</span><span class="p">()),</span>
+            <span class="nx">movieId</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">)</span>
+        <span class="p">});</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>save review</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">reviews</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">review</span><span class="p">,</span> <span class="p">{</span> 
+            <span class="nx">wait</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">galactus</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">showNotice</span><span class="p">(</span><span class="s1">&#39;danger&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

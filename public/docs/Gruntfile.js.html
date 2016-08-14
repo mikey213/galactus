@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gruntfile.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="doc-style.css" />
+  <script src="doc-filelist.js"></script>
+  <script>
+    var relativeDir = "", thisFile = "courses/courses/cscc09f15/dennism7/a3/Gruntfilejs", defaultSidebar = true;
+  </script>
+  <script src="doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>Gruntfile.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+    <span class="nx">pkg</span><span class="o">:</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">readJSON</span><span class="p">(</span><span class="s1">&#39;package.json&#39;</span><span class="p">),</span>
+
+    <span class="nx">uglify</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">banner</span><span class="o">:</span> <span class="s1">&#39;/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today(&quot;yyyy-mm-dd&quot;) %&gt; */\n&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">build</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">src</span><span class="o">:</span> <span class="p">[</span>
+              <span class="s1">&#39;public/js/utils.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/collections/movies.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/collections/reviews.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/collections/users.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/models/movie.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/models/review.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/models/user.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/about.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/details.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/header.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/home.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/movieform.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/movieimg.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/movies.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/reviewer.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/reviewsview.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/reviewthumbs.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/signin.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/views/signup.js&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;public/js/main.js&#39;</span>
+          <span class="p">],</span>
+          <span class="nx">dest</span><span class="o">:</span> <span class="s1">&#39;public/js/&lt;%= pkg.name %&gt;-min.js&#39;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+
+    <span class="nx">qunit</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s1">&#39;--ignore-ssl-errors&#39;</span><span class="o">:</span> <span class="kc">true</span>
+          <span class="p">},</span>
+        <span class="nx">all</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+              <span class="nx">urls</span><span class="o">:</span> <span class="p">[</span> <span class="s1">&#39;https://mathlab.utsc.utoronto.ca:&lt;%= pkg.port %&gt;/test/test.html&#39;</span> <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="nx">jshint</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">curly</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">// require curly braces around all blocks</span>
+        <span class="nx">eqeqeq</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">// require use of exact equality comparison</span>
+        <span class="nx">nonew</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>   <span class="c1">// prohibit use of Constructor for side effects</span>
+        <span class="nx">undef</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">// prohibit use of explicitly undeclared var&#39;s</span>
+        <span class="nx">unused</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">// warn on variables that are defined but not used</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>want browser false for server-side code, true for client-side</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">browser</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>  <span class="c1">// expose globals defined by browsers</span>
+        <span class="nx">devel</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">// expose globals used for debugging, s.a. console</span>
+        <span class="nx">globals</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">jQuery</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">_</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">$</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">Backbone</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="nx">ignores</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;public/js/lib/**/*.js&#39;</span><span class="p">],</span>
+        <span class="nx">reporter</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jshint-html-reporter&#39;</span><span class="p">),</span>
+        <span class="nx">reporterOutput</span><span class="o">:</span> <span class="s1">&#39;public/jshint_report.html&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;public/js/**/*.js&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">});</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>Load plugins for , "uglify", "qunit", "jshint"</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-uglify&#39;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-qunit&#39;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-contrib-jshint&#39;</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>Default task(s)</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;jshint&#39;</span><span class="p">,</span> <span class="s1">&#39;uglify&#39;</span><span class="p">,</span> <span class="s1">&#39;qunit&#39;</span><span class="p">]);</span>
+
+<span class="p">};</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

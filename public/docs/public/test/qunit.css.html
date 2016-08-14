@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>qunit.css</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../", thisFile = "courses/courses/cscc09f15/dennism7/a3/public/test/qunitcss", defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>qunit.css</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+<p>!
+* QUnit 1.20.0
+* <a href='http://qunitjs.com/'>http://qunitjs.com/</a>
+*
+* Copyright jQuery Foundation and other contributors
+* Released under the MIT license
+* <a href='http://jquery.org/license'>http://jquery.org/license</a>
+*
+* Date: 2015-10-27T17:53Z</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="c">/** Font Family and Sizes */</span>
+
+<span class="nf">#qunit-tests</span><span class="o">,</span> <span class="nf">#qunit-header</span><span class="o">,</span> <span class="nf">#qunit-banner</span><span class="o">,</span> <span class="nf">#qunit-testrunner-toolbar</span><span class="o">,</span> <span class="nf">#qunit-filteredTest</span><span class="o">,</span> <span class="nf">#qunit-userAgent</span><span class="o">,</span> <span class="nf">#qunit-testresult</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="s2">&quot;Helvetica Neue Light&quot;</span><span class="o">,</span> <span class="s2">&quot;HelveticaNeue-Light&quot;</span><span class="o">,</span> <span class="s2">&quot;Helvetica Neue&quot;</span><span class="o">,</span> <span class="n">Calibri</span><span class="o">,</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="n">Arial</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-testrunner-toolbar</span><span class="o">,</span> <span class="nf">#qunit-filteredTest</span><span class="o">,</span> <span class="nf">#qunit-userAgent</span><span class="o">,</span> <span class="nf">#qunit-testresult</span><span class="o">,</span> <span class="nf">#qunit-tests</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span> <span class="n">small</span><span class="p">;</span> <span class="p">}</span>
+<span class="nf">#qunit-tests</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span> <span class="k">smaller</span><span class="p">;</span> <span class="p">}</span>
+
+
+<span class="c">/** Resets */</span>
+
+<span class="nf">#qunit-tests</span><span class="o">,</span> <span class="nf">#qunit-header</span><span class="o">,</span> <span class="nf">#qunit-banner</span><span class="o">,</span> <span class="nf">#qunit-filteredTest</span><span class="o">,</span> <span class="nf">#qunit-userAgent</span><span class="o">,</span> <span class="nf">#qunit-testresult</span><span class="o">,</span> <span class="nf">#qunit-modulefilter</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c">/** Header */</span>
+
+<span class="nf">#qunit-header</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.5em</span> <span class="m">0</span> <span class="m">0.5em</span> <span class="m">1em</span><span class="p">;</span>
+
+  <span class="k">color</span><span class="o">:</span> <span class="m">#8699A4</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#0D3349</span><span class="p">;</span>
+
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">1.5em</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="m">400</span><span class="p">;</span>
+
+  <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span> <span class="m">5px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-header</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#C2CCD1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-header</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nf">#qunit-header</span> <span class="nt">a</span><span class="nd">:focus</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-testrunner-toolbar</span> <span class="nt">label</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">0.5em</span> <span class="m">0</span> <span class="m">0.1em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-banner</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-testrunner-toolbar</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.5em</span> <span class="m">1em</span> <span class="m">0.5em</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#5E740B</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#EEE</span><span class="p">;</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-filteredTest</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.5em</span> <span class="m">1em</span> <span class="m">0.5em</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#F4FF77</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#366097</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-userAgent</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.5em</span> <span class="m">1em</span> <span class="m">0.5em</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#2B81AF</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
+  <span class="k">text-shadow</span><span class="o">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">.</span><span class="m">5</span><span class="p">)</span> <span class="m">2px</span> <span class="m">2px</span> <span class="m">1px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-modulefilter-container</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.2em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.qunit-url-config</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.1em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.qunit-filter</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/** Tests: Pass/Fail */</span>
+
+<span class="nf">#qunit-tests</span> <span class="p">{</span>
+  <span class="k">list-style-position</span><span class="o">:</span> <span class="k">inside</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.4em</span> <span class="m">1em</span> <span class="m">0.4em</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#FFF</span><span class="p">;</span>
+  <span class="k">list-style-position</span><span class="o">:</span> <span class="k">inside</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">li</span><span class="nc">.running</span><span class="o">,</span>
+<span class="nf">#qunit-tests</span> <span class="nt">li</span><span class="nc">.pass</span><span class="o">,</span>
+<span class="nf">#qunit-tests</span> <span class="nt">li</span><span class="nc">.fail</span><span class="o">,</span>
+<span class="nf">#qunit-tests</span> <span class="nt">li</span><span class="nc">.skipped</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">list-item</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span><span class="nc">.hidepass</span> <span class="nt">li</span><span class="nc">.running</span><span class="o">,</span>
+<span class="nf">#qunit-tests</span><span class="nc">.hidepass</span> <span class="nt">li</span><span class="nc">.pass</span> <span class="p">{</span>
+  <span class="k">visibility</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span>   <span class="m">0</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span>  <span class="m">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span>  <span class="m">0</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span>  <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">li</span> <span class="nt">strong</span> <span class="p">{</span>
+  <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">li</span><span class="nc">.skipped</span> <span class="nt">strong</span> <span class="p">{</span>
+  <span class="k">cursor</span><span class="o">:</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.5em</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#C2CCD1</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">li</span> <span class="nt">p</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.25em</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#6B6464</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#qunit-tests</span> <span class="nt">li</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nf">#qunit-tests</span> <span class="nt">li</span> <span class="nt">a</span><span class="nd">:focus</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">li</span> <span class="nc">.runtime</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="k">smaller</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.qunit-assert-list</span> <span class="p">{</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">0.5em</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.5em</span><span class="p">;</span>
+
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
+
+  <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.qunit-source</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0.6em</span> <span class="m">0</span> <span class="m">0.3em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.qunit-collapsed</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">table</span> <span class="p">{</span>
+  <span class="k">border-collapse</span><span class="o">:</span> <span class="k">collapse</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">0.2em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">th</span> <span class="p">{</span>
+  <span class="k">text-align</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+  <span class="k">vertical-align</span><span class="o">:</span> <span class="k">top</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">0.5em</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">td</span> <span class="p">{</span>
+  <span class="k">vertical-align</span><span class="o">:</span> <span class="k">top</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">pre</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">white-space</span><span class="o">:</span> <span class="n">pre</span><span class="o">-</span><span class="n">wrap</span><span class="p">;</span>
+  <span class="n">word</span><span class="o">-</span><span class="n">wrap</span><span class="o">:</span> <span class="n">break</span><span class="o">-</span><span class="n">word</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">del</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#E0F2BE</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#374E0C</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">ins</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#FFCACA</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#500</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/*** Test Counts */</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">b</span><span class="nc">.counts</span>                       <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span> <span class="p">}</span>
+<span class="nf">#qunit-tests</span> <span class="nt">b</span><span class="nc">.passed</span>                       <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#5E740B</span><span class="p">;</span> <span class="p">}</span>
+<span class="nf">#qunit-tests</span> <span class="nt">b</span><span class="nc">.failed</span>                       <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#710909</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">li</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
+  <span class="k">border-bottom</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">list-style-position</span><span class="o">:</span> <span class="k">inside</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/*** Passing Styles */</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">li</span> <span class="nt">li</span><span class="nc">.pass</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#3C510C</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
+  <span class="k">border-left</span><span class="o">:</span> <span class="m">10px</span> <span class="k">solid</span> <span class="m">#C6E746</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nc">.pass</span>                          <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#528CE0</span><span class="p">;</span> <span class="k">background-color</span><span class="o">:</span> <span class="m">#D2E0E6</span><span class="p">;</span> <span class="p">}</span>
+<span class="nf">#qunit-tests</span> <span class="nc">.pass</span> <span class="nc">.test-name</span>               <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#366097</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nc">.pass</span> <span class="nc">.test-actual</span><span class="o">,</span>
+<span class="nf">#qunit-tests</span> <span class="nc">.pass</span> <span class="nc">.test-expected</span>           <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#999</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nf">#qunit-banner</span><span class="nc">.qunit-pass</span>                    <span class="p">{</span> <span class="k">background-color</span><span class="o">:</span> <span class="m">#C6E746</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/*** Failing Styles */</span>
+
+<span class="nf">#qunit-tests</span> <span class="nt">li</span> <span class="nt">li</span><span class="nc">.fail</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#710909</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
+  <span class="k">border-left</span><span class="o">:</span> <span class="m">10px</span> <span class="k">solid</span> <span class="m">#EE5757</span><span class="p">;</span>
+  <span class="k">white-space</span><span class="o">:</span> <span class="n">pre</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="nd">:last-child</span> <span class="p">{</span>
+  <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">5px</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nc">.fail</span>                          <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span> <span class="k">background-color</span><span class="o">:</span> <span class="m">#EE5757</span><span class="p">;</span> <span class="p">}</span>
+<span class="nf">#qunit-tests</span> <span class="nc">.fail</span> <span class="nc">.test-name</span><span class="o">,</span>
+<span class="nf">#qunit-tests</span> <span class="nc">.fail</span> <span class="nc">.module-name</span>             <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nc">.fail</span> <span class="nc">.test-actual</span>             <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#EE5757</span><span class="p">;</span> <span class="p">}</span>
+<span class="nf">#qunit-tests</span> <span class="nc">.fail</span> <span class="nc">.test-expected</span>           <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#008000</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nf">#qunit-banner</span><span class="nc">.qunit-fail</span>                    <span class="p">{</span> <span class="k">background-color</span><span class="o">:</span> <span class="m">#EE5757</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/*** Skipped tests */</span>
+
+<span class="nf">#qunit-tests</span> <span class="nc">.skipped</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#EBECE9</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#qunit-tests</span> <span class="nc">.qunit-skipped-label</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#F4FF77</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+  <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#366097</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1.8em</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">0.5em</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">-0.4em</span> <span class="m">0.4em</span> <span class="m">-0.4em</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/** Result */</span>
+
+<span class="nf">#qunit-testresult</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0.5em</span> <span class="m">1em</span> <span class="m">0.5em</span> <span class="m">1em</span><span class="p">;</span>
+
+  <span class="k">color</span><span class="o">:</span> <span class="m">#2B81AF</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#D2E0E6</span><span class="p">;</span>
+
+  <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#FFF</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#qunit-testresult</span> <span class="nc">.module-name</span> <span class="p">{</span>
+  <span class="k">font-weight</span><span class="o">:</span> <span class="m">700</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/** Fixture */</span>
+
+<span class="nf">#qunit-fixture</span> <span class="p">{</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+  <span class="k">top</span><span class="o">:</span> <span class="m">-10000px</span><span class="p">;</span>
+  <span class="k">left</span><span class="o">:</span> <span class="m">-10000px</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">1000px</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">1000px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+    <div class="thumbnail" title="<%- title %>">   
+        <a href="#movies/<%- _id %>">
+            <video class="img-responsive" controls poster="<%- poster %>" preload="none">
+                <source src="<%- trailer %>" type="video/mp4"/>
+                <!-- fallback -->
+            </video>
+        </a>
+        <div class="details">
+            <a class="review-swatch" href="#movies/<%- _id %>/reviews">
+                <img src="img/<%- freshness > 50 ? 'fresh' : 'rotten' %>_lg.png" alt="" />
+                <span><%- freshTotal ? freshness.toFixed(1)  + ' (' + freshTotal + ')' : 'N/A' %></span>
+            </a>
+            <div class="more">
+                <h4><%- title %><span> <%- '(' + released + ')' %></span></h4>
+                <span>Director</span> <%- director %><br />
+                <span>Genre(s)</span> <%- genre.join(', ') %><br />
+                <span>Runtime</span> <%- duration + 'min' %> &nbsp; <span>Rating</span> <%- rating %>
+            </div>
+        </div>
+    </div>
+</div>

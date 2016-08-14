@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../", thisFile = "courses/courses/cscc09f15/dennism7/a3/public/test/testhtml", defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>test.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>QUnit Test Suite<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;qunit.css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="c">&lt;!-- placeholder div&#39;s to hold test report output --&gt;</span>
+        <span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">&quot;qunit-header&quot;</span><span class="nt">&gt;</span>QUnit Test Suite<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">&quot;qunit-banner&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;qunit-testrunner-toolbar&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">&quot;qunit-userAgent&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+        <span class="nt">&lt;ol</span> <span class="na">id=</span><span class="s">&quot;qunit-tests&quot;</span><span class="nt">&gt;</span>test markup, hidden.<span class="nt">&lt;/ol&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;qunit-fixture&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+        <span class="c">&lt;!-- load libraries, including qunitjs --&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/lib/jquery-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/lib/underscore-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/lib/backbone-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/lib/qunit.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/lib/qunit-reporter-junit.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/lib/sinon-1.15.0.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/lib/sinon-qunit-1.0.0.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="c">&lt;!-- custom scripts --&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/utils.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="c">&lt;!-- set CSRF token --&gt;</span>
+        <span class="nt">&lt;script&gt;</span>
+            <span class="nx">$</span><span class="p">.</span><span class="nx">ajaxSetup</span><span class="p">({</span>
+                <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">jqXHR</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">jqXHR</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s1">&#39;X-CSRF-Token&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;%= token %&gt;&#39;</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+        <span class="nt">&lt;/script&gt;</span>
+        <span class="c">&lt;!-- components to be tested --&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/models/movie.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/models/review.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/models/user.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../js/collections/reviews.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="c">&lt;!-- app tests --&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;apptests.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

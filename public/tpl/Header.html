@@ -1,0 +1,42 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- hamburger button for mobile -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-links" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- -->
+            <a class="navbar-brand app-name" href="#home">Galactus</a>
+        </div>
+        <!-- nav links for toggling -->
+        <div class="collapse navbar-collapse" id="app-links">
+            <ul class="nav navbar-nav">
+                <li class="browse-movies">
+                    <a href="#movies">Browse Movies</a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">Sort Order</li>
+                        <li><label><input type="radio" name="sort" value="title" checked>Title</label></li>
+                        <li><label><input type="radio" name="sort" value="director">Director</label></li>
+                    </ul>
+                </li>
+                <li class="add-movie hidden">
+                    <a href="#movies/add">Add Movie</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="sign-up">
+                    <a href="#">Sign Up</a>
+                    <div class="dropdown-menu"></div>
+                </li>
+                <li class="sign-in">
+                    <a href="#" class="username">Sign In</a>
+                    <div class="dropdown-menu"></div>
+                </li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

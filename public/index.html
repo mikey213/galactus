@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- metadata -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" sizes="32x32">
+    <!-- title -->
+    <title>Galactus</title>
+    <!-- styles -->
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="/node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- header -->
+    <header class="header"></header>
+    <!-- main content -->
+    <main class="container-fluid"> 
+        <div class="row" id="mainrow">
+            <div id="content"></div>
+        </div>
+    </main>
+    <!-- footer -->
+    <footer class="footer">&copy; 2016 Galactus</footer>
+    <!-- library scripts -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/underscore/underscore-min.js"></script>
+    <script src="/node_modules/backbone/backbone-min.js"></script>
+    <script src="/node_modules/backbone-localstorage/backbone-localstorage.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- custom scripts -->
+    <script src="js/utils.js"></script>
+    <!-- set CSRF token -->
+    <!--script>galactus.token = '<%= token %>';</script-->
+    <script src="js/models/movie.js"></script>
+    <script src="js/models/review.js"></script>
+    <script src="js/models/user.js"></script>
+    <script src="js/collections/movies.js"></script>
+    <script src="js/collections/reviews.js"></script>
+    <script src="js/views/home.js"></script>
+    <script src="js/views/header.js"></script>
+    <script src="js/views/about.js"></script>
+    <script src="js/views/movies.js"></script>
+    <script src="js/views/details.js"></script>
+    <script src="js/views/movieform.js"></script>
+    <script src="js/views/movieimg.js"></script>
+    <script src="js/views/reviewsview.js"></script>
+    <script src="js/views/reviewer.js"></script>
+    <script src="js/views/reviewthumbs.js"></script>
+    <script src="js/views/signup.js"></script>
+    <script src="js/views/signin.js"></script> 
+    <script src="js/main.js"></script>
+</body>
+</html>

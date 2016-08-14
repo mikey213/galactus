@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>styles.css</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../", thisFile = "courses/courses/cscc09f15/dennism7/a3/public/css/stylescss", defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>styles.css</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="c">/* General */</span>
+<span class="nt">html</span> <span class="p">{</span>
+    <span class="k">min-height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">body</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">50px</span><span class="p">;</span>
+    <span class="k">padding-left</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="k">padding-right</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="k">padding-top</span><span class="o">:</span> <span class="m">70px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">text</span><span class="o">]</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">q</span> <span class="p">{</span>
+    <span class="c">/*quotes: &quot;“&quot; &quot;”&quot; &quot;‘&quot; &quot;’&quot;;*/</span>
+<span class="p">}</span>
+<span class="nt">textarea</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#content</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#content</span> <span class="o">&gt;</span> <span class="nc">.alert</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+    <span class="k">z-index</span><span class="o">:</span> <span class="m">10</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.help-error</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#a00</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.review-swatch</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.review-swatch</span> <span class="nt">img</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">84px</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.review-swatch</span> <span class="nt">span</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">14px</span><span class="p">;</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">padding-top</span><span class="o">:</span> <span class="m">30</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+    <span class="k">text</span><span class="o">-</span><span class="k">overflow</span><span class="o">:</span> <span class="n">ellipsis</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">white-space</span><span class="o">:</span> <span class="k">nowrap</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Header view */</span>
+<span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nc">.container</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">85</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nc">.app-name</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">125</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nt">li</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nc">.active</span> <span class="o">&gt;</span> <span class="nt">a</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nc">.dropdown-menu</span> <span class="p">{</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nc">.sign-in</span> <span class="nc">.dropdown-menu</span><span class="o">,</span> <span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nc">.sign-up</span> <span class="nc">.dropdown-menu</span> <span class="p">{</span>
+    <span class="k">min-width</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">768px</span><span class="o">)</span> <span class="p">{</span>
+    <span class="c">/* hide dropdown for mobile-tablet screens */</span>
+    <span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nc">.dropdown-menu</span> <span class="p">{</span>
+        <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nc">.dropdown-header</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span> <span class="m">20px</span> <span class="m">3px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nt">label</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nc">.browse-movies</span> <span class="nt">label</span> <span class="p">{</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">3px</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nt">label</span> <span class="o">&gt;</span> <span class="nt">input</span> <span class="p">{</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">5px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">padding-right</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.header</span> <span class="nc">.navbar</span> <span class="nc">.sign-out</span> <span class="nt">span</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/* Sticky Footer */</span>
+<span class="nc">.footer</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+    <span class="k">bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">fixed</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Home view */</span>
+<span class="nf">#home</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#433a33</span>  <span class="sx">url(&#39;../img/sky.jpg&#39;)</span> <span class="k">no-repeat</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">-</span><span class="k">size</span><span class="o">:</span> <span class="n">cover</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">fixed</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">768px</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nf">#home</span> <span class="nc">.row</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
+        <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nf">#home</span> <span class="nc">.row</span> <span class="o">&gt;</span> <span class="nt">div</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">1</span><span class="o">)</span> <span class="p">{</span>
+        <span class="k">text-align</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nf">#home</span> <span class="nc">.row</span> <span class="o">&gt;</span> <span class="nt">div</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span> <span class="p">{</span>
+        <span class="k">text-align</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nf">#home</span> <span class="nt">h3</span> <span class="p">{</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="n">Verdana</span><span class="o">,</span> <span class="n">Geneva</span><span class="o">,</span> <span class="n">Helvetica</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">36pt</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">160px</span> <span class="k">auto</span> <span class="m">20px</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+    <span class="k">text-shadow</span><span class="o">:</span> <span class="m">1px</span> <span class="m">1px</span> <span class="m">#000</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#home</span> <span class="nt">a</span> <span class="p">{</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">10px</span> <span class="m">6px</span><span class="p">;</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">180px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#home</span> <span class="nt">a</span> <span class="nc">.bg</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#666</span><span class="p">;</span>
+    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(&#39;../img/movie-clip.png&#39;)</span><span class="p">;</span>
+    <span class="k">background-position</span><span class="o">:</span> <span class="m">10px</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="k">background-repeat</span><span class="o">:</span> <span class="k">no-repeat</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">-</span><span class="k">size</span><span class="o">:</span> <span class="m">50px</span> <span class="m">50px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">5</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#home</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="nc">.bg</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#cd853f</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#home</span> <span class="nt">a</span> <span class="nt">span</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s1">&#39;Arvo&#39;</span><span class="o">,</span> <span class="k">serif</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">10px</span> <span class="m">10px</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">white-space</span><span class="o">:</span> <span class="n">pre</span><span class="o">-</span><span class="n">wrap</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* About view */</span>
+<span class="nf">#about</span> <span class="p">{</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+    <span class="k">margin-right</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">700px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#about</span> <span class="nt">h2</span> <span class="p">{</span>
+    <span class="k">padding-left</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#about</span> <span class="nc">.app-name</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#996</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#about</span> <span class="nc">.blurb</span> <span class="p">{</span>
+    <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">20px</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#about</span> <span class="nt">img</span> <span class="p">{</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Browse view */</span>
+<span class="nf">#browse</span> <span class="nc">.thumbnail</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="k">transparent</span><span class="p">;</span>
+    <span class="k">border-color</span><span class="o">:</span> <span class="m">#25383C</span><span class="p">;</span>
+    <span class="k">border-width</span><span class="o">:</span> <span class="m">1px</span><span class="p">;</span>
+    <span class="k">margin-right</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#browse</span> <span class="nc">.thumbnail</span> <span class="nt">a</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
+    <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#browse</span> <span class="nc">.thumbnail</span> <span class="nc">.details</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#181818</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="n">flex</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">80</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#browse</span> <span class="nc">.thumbnail</span> <span class="nc">.review-swatch</span> <span class="p">{</span>
+    <span class="n">flex</span><span class="o">:</span> <span class="m">0</span> <span class="m">1</span> <span class="m">30</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#browse</span> <span class="nc">.thumbnail</span> <span class="nc">.more</span> <span class="p">{</span>
+    <span class="n">flex</span><span class="o">:</span> <span class="m">0</span> <span class="m">1</span> <span class="m">70</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+    <span class="k">text</span><span class="o">-</span><span class="k">overflow</span><span class="o">:</span> <span class="n">ellipsis</span><span class="p">;</span>
+    <span class="k">white-space</span><span class="o">:</span> <span class="k">nowrap</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#browse</span> <span class="nc">.thumbnail</span> <span class="nc">.more</span> <span class="nt">h4</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#996</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="s1">&#39;Arvo&#39;</span><span class="o">,</span> <span class="k">serif</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">2px</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
+    <span class="k">text</span><span class="o">-</span><span class="k">overflow</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#browse</span> <span class="nc">.thumbnail</span> <span class="nc">.more</span> <span class="nt">h4</span> <span class="o">&gt;</span> <span class="nt">span</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">80</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#browse</span> <span class="nc">.thumbnail</span> <span class="nc">.more</span> <span class="o">&gt;</span> <span class="nt">span</span> <span class="p">{</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#browse</span> <span class="nc">.thumbnail</span> <span class="nc">.more</span> <span class="o">&gt;</span> <span class="nt">span</span><span class="nd">:after</span> <span class="p">{</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;:&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Details view */</span>
+<span class="nf">#details</span> <span class="o">&gt;</span> <span class="nt">div</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span> <span class="nc">.form-group</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">450px</span><span class="p">;</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#details</span> <span class="o">&gt;</span> <span class="nt">div</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span> <span class="nc">.review-swatch</span> <span class="p">{</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#details</span> <span class="o">&gt;</span> <span class="nt">div</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span> <span class="nt">button</span> <span class="p">{</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#details</span> <span class="nc">.poster</span> <span class="p">{</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="k">max-height</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">450px</span><span class="p">;</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#details</span> <span class="nc">.instruction</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">375px</span><span class="p">;</span> 
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#details</span> <span class="nc">.instruction</span> <span class="o">&gt;</span> <span class="nt">span</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+    <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="k">padding-right</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#details</span> <span class="nc">.instruction</span> <span class="nc">.btn</span> <span class="p">{</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#details</span> <span class="nc">.instruction</span> <span class="nc">.btn</span> <span class="nt">input</span> <span class="p">{</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* ReviewView view */</span>
+<span class="nf">#reviews</span> <span class="nc">.panel</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="nb">beige</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">2px</span> <span class="k">solid</span> <span class="m">#093</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">7px</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.review-summary</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#d80000</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+    <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#reviews</span> <span class="nc">.panel</span> <span class="nc">.review-summary</span> <span class="p">{</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">768px</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nf">#reviews</span> <span class="nc">.form-inline</span> <span class="nc">.form-group</span> <span class="p">{</span>
+        <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c">/* ReviewsThumbs view */</span>
+<span class="nf">#reviews</span> <span class="nf">#thumbnails</span> <span class="p">{</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#reviews</span> <span class="nf">#thumbnails</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
+    <span class="k">padding-left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#reviews</span> <span class="nc">.thumbnail</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="k">transparent</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#reviews</span> <span class="nc">.thumbnail</span> <span class="nc">.panel</span> <span class="nc">.reviewText</span> <span class="p">{</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#reviews</span> <span class="nc">.thumbnail</span> <span class="nc">.caption</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#reviews</span> <span class="nc">.thumbnail</span> <span class="nc">.caption</span> <span class="nc">.reviewName</span> <span class="p">{</span>
+    <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
+    <span class="k">margin-top</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

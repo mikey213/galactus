@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>apptests.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../", thisFile = "courses/courses/cscc09f15/dennism7/a3/public/test/apptestsjs", defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>apptests.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="nx">QUnit</span><span class="p">.</span><span class="nx">jUnitReport</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">report</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">report</span><span class="p">.</span><span class="nx">xml</span><span class="p">);</span>   <span class="c1">// send XML outPUT report to console</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">movie</span><span class="p">,</span> <span class="nx">review</span><span class="p">;</span>
+
+<span class="nx">QUnit</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>setup before each test</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">beforeEach</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">async</span><span class="p">(),</span>
+            <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>authenticate user with valid credentials</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">galactus</span><span class="p">.</span><span class="nx">User</span><span class="p">({</span> <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="nx">login</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+        <span class="nx">user</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;PUT&#39;</span><span class="p">,</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;Successful login with valid credentials&#39;</span><span class="p">);</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>create a unique movie</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+                <span class="nx">movie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">galactus</span><span class="p">.</span><span class="nx">Movie</span><span class="p">({</span>
+                    <span class="s1">&#39;__v&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;dated&#39;</span><span class="o">:</span> <span class="nx">d</span><span class="p">.</span><span class="nx">toISOString</span><span class="p">(),</span> <span class="s1">&#39;director&#39;</span><span class="o">:</span> <span class="s1">&#39;Test Director&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span> 
+                    <span class="s1">&#39;freshTotal&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;freshVotes&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;genre&#39;</span><span class="o">:</span> <span class="p">[</span> <span class="s1">&#39;action&#39;</span> <span class="p">],</span> <span class="s1">&#39;poster&#39;</span><span class="o">:</span><span class="s1">&#39;img/placeholder.png&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;rating&#39;</span><span class="o">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;released&#39;</span><span class="o">:</span> <span class="mi">2015</span><span class="p">,</span> <span class="s1">&#39;starring&#39;</span><span class="o">:</span> <span class="p">[</span> <span class="s1">&#39;Test Actor&#39;</span> <span class="p">],</span> 
+                    <span class="s1">&#39;synopsis&#39;</span><span class="o">:</span> <span class="s1">&#39;Test movie&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="o">:</span> <span class="s1">&#39;Movie &#39;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getTime</span><span class="p">(),</span> <span class="s1">&#39;trailer&#39;</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;userId&#39;</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">userId</span>
+                <span class="p">});</span>
+                <span class="nx">movie</span><span class="p">.</span><span class="nx">urlRoot</span> <span class="o">=</span> <span class="s1">&#39;/movies&#39;</span><span class="p">;</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>create a unique review</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+                <span class="nx">review</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">galactus</span><span class="p">.</span><span class="nx">Review</span><span class="p">({</span>
+                    <span class="s1">&#39;__v&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;dated&#39;</span><span class="o">:</span> <span class="nx">d</span><span class="p">.</span><span class="nx">toISOString</span><span class="p">(),</span> <span class="s1">&#39;reviewAffil&#39;</span><span class="o">:</span> <span class="s1">&#39;Test Affil&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;reviewName&#39;</span><span class="o">:</span> <span class="s1">&#39;Reviewer &#39;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getTime</span><span class="p">(),</span> <span class="s1">&#39;reviewText&#39;</span><span class="o">:</span> <span class="s1">&#39;Test review&#39;</span>
+                <span class="p">});</span>
+                <span class="nx">done</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">QUnit</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Test saving a movie with missing attributes fails&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">async</span><span class="p">();</span>
+
+    <span class="kd">var</span> <span class="nx">movie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">galactus</span><span class="p">.</span><span class="nx">Movie</span><span class="p">({</span> <span class="s1">&#39;title&#39;</span><span class="o">:</span> <span class="s1">&#39;Bad movie&#39;</span> <span class="p">});</span>
+        <span class="nx">movie</span><span class="p">.</span><span class="nx">urlRoot</span> <span class="o">=</span> <span class="s1">&#39;/movies&#39;</span><span class="p">;</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>try to save a movie</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">movie</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;Saving movie returns 500 status&#39;</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nx">QUnit</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Test saving the same movie twice fails&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">async</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<p>try to save a movie</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">movie</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="s1">&#39;Saving movie succeeded&#39;</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>clear ID to treat movie as new</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+            <span class="nx">movie</span><span class="p">.</span><span class="nx">unset</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">);</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<p>try to save the same movie again!</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+            <span class="nx">movie</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span> <span class="mi">403</span><span class="p">,</span> <span class="s1">&#39;Saving same movie returns 403 status&#39;</span><span class="p">);</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nx">QUnit</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Test deleting non-existant movie fails&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">async</span><span class="p">();</span>
+
+    <span class="nx">movie</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">,</span> <span class="s1">&#39;557761f092e40db92c3ccdae&#39;</span><span class="p">);</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
+</div>
+<p>try to destroy a non-existant movie</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">movie</span><span class="p">.</span><span class="nx">destroy</span><span class="p">({</span>
+        <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span> <span class="mi">404</span><span class="p">,</span> <span class="s1">&#39;Deleting non-existant movie returns 404 status code&#39;</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nx">QUnit</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Test deleting the same movie twice fails&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">async</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">$dfd</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">(),</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">()</span> <span class="p">];</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11">&#182;</a>
+</div>
+<p>save movie first</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">movie</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="s1">&#39;Saving movie returns 200 status code&#39;</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+            <span class="nx">$dfd</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">resolve</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12">&#182;</a>
+</div>
+<p>try to destroy a movie</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">$dfd</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">movie</span><span class="p">.</span><span class="nx">destroy</span><span class="p">({</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="s1">&#39;Deleting movie returns 200 status code&#39;</span><span class="p">);</span>
+                <span class="nx">done</span><span class="p">();</span>
+                <span class="nx">$dfd</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">resolve</span><span class="p">();</span>                
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13">&#182;</a>
+</div>
+<p>try to destroy the same movie again!</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">$dfd</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">movie</span><span class="p">.</span><span class="nx">destroy</span><span class="p">({</span>
+            <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span> <span class="mi">404</span><span class="p">,</span> <span class="s1">&#39;Deleting movie twice returns 404 status code&#39;</span><span class="p">);</span>
+                <span class="nx">done</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nx">QUnit</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Test related reviews are deleted after deleting a movie&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">assert</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">async</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">$dfd</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">(),</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">(),</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">()</span> <span class="p">];</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14">&#182;</a>
+</div>
+<p>try to save movie</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">movie</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="s1">&#39;Saving movie returns 200 status code&#39;</span><span class="p">);</span>
+            <span class="nx">done</span><span class="p">();</span>
+            <span class="nx">$dfd</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">resolve</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-15" id="section-15">&#182;</a>
+</div>
+<p>try to save review</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">$dfd</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">review</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="nx">movie</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">));</span>
+        <span class="nx">movie</span><span class="p">.</span><span class="nx">reviews</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;/movies/&#39;</span> <span class="o">+</span> <span class="nx">movie</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/reviews&#39;</span><span class="p">;</span>
+        <span class="nx">movie</span><span class="p">.</span><span class="nx">reviews</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">review</span><span class="p">,</span> <span class="p">{</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="s1">&#39;Saving review returns 200 status code&#39;</span><span class="p">);</span>
+                <span class="nx">done</span><span class="p">();</span>
+                <span class="nx">$dfd</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">resolve</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-16" id="section-16">&#182;</a>
+</div>
+<p>try to destroy a movie</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">$dfd</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">movie</span><span class="p">.</span><span class="nx">destroy</span><span class="p">({</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="s1">&#39;Deleting movie returns 200 status code&#39;</span><span class="p">);</span>
+                <span class="nx">done</span><span class="p">();</span>
+                <span class="nx">$dfd</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">resolve</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-17" id="section-17">&#182;</a>
+</div>
+<p>check that there are no reviews</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">$dfd</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">movie</span><span class="p">.</span><span class="nx">reviews</span><span class="p">.</span><span class="nx">fetch</span><span class="p">({</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">coll</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">coll</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Deleting movie deletes all associated reviews&#39;</span><span class="p">);</span>
+                <span class="nx">done</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

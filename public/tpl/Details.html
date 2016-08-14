@@ -1,0 +1,16 @@
+<!-- 1st column -->
+<div id="form" class="col-xs-6"></div>
+<!-- 2nd column -->
+<div class="col-xs-6">
+	<div class="form-group">
+		<% if (typeof _id !== 'undefined') { %>
+		<a class="review-swatch" href="#movies/<%- _id %>/reviews">
+	        <img src="img/<%- freshness > 50 ? 'fresh' : 'rotten' %>_lg.png" alt="" />
+	        <span><%- freshTotal ? freshness.toFixed(1)  + ' (' + freshTotal + ')' : 'N/A' %></span>
+		</a>
+	    <% } %>
+	    <button type="button" class="btn btn-danger" id="delete">Delete Movie</button>
+	    <button type="button" class="btn btn-primary" id="save">Save Changes</button>
+	</div>
+	<div id="img"></div>
+</div>

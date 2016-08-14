@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>header.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../", thisFile = "courses/courses/cscc09f15/dennism7/a3/public/js/views/headerjs", defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>header.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">galactus</span> <span class="o">=</span>  <span class="nx">galactus</span> <span class="o">||</span> <span class="p">{};</span>
+
+<span class="nx">galactus</span><span class="p">.</span><span class="nx">Header</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Initialize the view</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">signInView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">galactus</span><span class="p">.</span><span class="nx">SignIn</span><span class="p">({</span> <span class="nx">model</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="p">});</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">signUpView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">galactus</span><span class="p">.</span><span class="nx">SignUp</span><span class="p">({</span> <span class="nx">model</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="p">});</span>      
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">listenTo</span><span class="p">(</span><span class="nx">Backbone</span><span class="p">,</span> <span class="s1">&#39;authenticating&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">authenticateUI</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">listenTo</span><span class="p">(</span><span class="nx">Backbone</span><span class="p">,</span> <span class="s1">&#39;deauthenticating&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">deauthenticateUI</span><span class="p">);</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>Render the view</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">template</span><span class="p">());</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">signInView</span><span class="p">.</span><span class="nx">setElement</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.sign-in &gt; .dropdown-menu&#39;</span><span class="p">)).</span><span class="nx">render</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">signUpView</span><span class="p">.</span><span class="nx">setElement</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.sign-up &gt; .dropdown-menu&#39;</span><span class="p">)).</span><span class="nx">render</span><span class="p">();</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>Bind events</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;click a&#39;</span><span class="o">:</span> <span class="s1">&#39;selectMenuItem&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;mouseenter .nav &gt; li&#39;</span><span class="o">:</span> <span class="s1">&#39;openDropdown&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;mouseleave .nav &gt; li&#39;</span><span class="o">:</span> <span class="s1">&#39;closeDropdown&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;change input[type=radio]&#39;</span><span class="o">:</span> <span class="s1">&#39;sortMovies&#39;</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>Set menu item in active state
+Note: this implementation of selectMenuItem was confirmed with prof as acceptable</p>
+
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">e:</span>
+      <span class="dox_type">[Object]</span>
+      <span>information about the fired event</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">selectMenuItem</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>Unset the active state of any selected menu item</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.active&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<p>Set the active state of selected menu item</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>Extra: Uncollapse dropdown menu on mobile screens</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.navbar-collapse.in&#39;</span><span class="p">).</span><span class="nx">collapse</span><span class="p">(</span><span class="s1">&#39;hide&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<p>Sort movies on the Browse view</p>
+
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">e:</span>
+      <span class="dox_type">[Object]</span>
+      <span>information about the fired event</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">sortMovies</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">Backbone</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;ordering&#39;</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">closeDropdown</span><span class="p">();</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
+</div>
+<p>Show dropdown menu</p>
+
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">e:</span>
+      <span class="dox_type">[Object]</span>
+      <span>information about the fired event</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">openDropdown</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">).</span><span class="nx">closest</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11">&#182;</a>
+</div>
+<p>Hide dropdown menu</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">closeDropdown</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li.open&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12">&#182;</a>
+</div>
+<p>Update UI on sign-in</p>
+
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">res:</span>
+      <span class="dox_type">[Object]</span>
+      <span>response object</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">authenticateUI</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">closeDropdown</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li.sign-in .username&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">username</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li.sign-up&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;reset&#39;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li.sign-in&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;reset&#39;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li.sign-in&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.sign-out&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li.add-movie&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13">&#182;</a>
+</div>
+<p>Update UI on sign-out</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">deauthenticateUI</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li.sign-in .username&#39;</span><span class="p">).</span><span class="nx">empty</span><span class="p">().</span><span class="nx">first</span><span class="p">().</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Sign In&#39;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li.sign-up&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li.sign-in&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li.sign-in&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.sign-out&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li.add-movie&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

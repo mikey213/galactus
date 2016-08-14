@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>details.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../", thisFile = "courses/courses/cscc09f15/dennism7/a3/public/js/views/detailsjs", defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>details.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">galactus</span> <span class="o">=</span>  <span class="nx">galactus</span> <span class="o">||</span> <span class="p">{};</span>
+
+<span class="nx">galactus</span><span class="p">.</span><span class="nx">Details</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;details&#39;</span><span class="p">,</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Initialize the view</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">movieFormView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">galactus</span><span class="p">.</span><span class="nx">MovieForm</span><span class="p">({</span> <span class="nx">model</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="p">});</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">movieImgView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">galactus</span><span class="p">.</span><span class="nx">MovieImg</span><span class="p">({</span> <span class="nx">model</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="p">});</span>      
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>Render the view</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">toJSONC</span><span class="p">()));</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">movieFormView</span><span class="p">.</span><span class="nx">setElement</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#form&#39;</span><span class="p">)).</span><span class="nx">render</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">movieImgView</span><span class="p">.</span><span class="nx">setElement</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#img&#39;</span><span class="p">)).</span><span class="nx">render</span><span class="p">();</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>Bind events</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;click #save&#39;</span><span class="o">:</span> <span class="s1">&#39;save&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;click #delete&#39;</span><span class="o">:</span> <span class="s1">&#39;delete&#39;</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>Save movie</p>
+
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">e:</span>
+      <span class="dox_type">[Object]</span>
+      <span>information about the event</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">save</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+        <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+        <span class="nx">galactus</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">hideErrors</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">validateAll</span><span class="p">())</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">isNew</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">isNew</span><span class="p">();</span>
+            <span class="nx">galactus</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">movies</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">wait</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nx">isNew</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">galactus</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;#movies/&#39;</span> <span class="o">+</span> <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">),</span> <span class="p">{</span> <span class="nx">replace</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">trigger</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+                        <span class="nx">self</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">reviews</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;/movies/&#39;</span> <span class="o">+</span> <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/reviews&#39;</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="nx">galactus</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">showNotice</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;&lt;strong&gt;Success!&lt;/strong&gt; Movie &lt;em&gt;&quot;&#39;</span> <span class="o">+</span> <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&quot;&lt;/em&gt; has been saved&#39;</span><span class="p">);</span>
+                <span class="p">},</span>
+                <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">galactus</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">showNotice</span><span class="p">(</span><span class="s1">&#39;danger&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">galactus</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">showNotice</span><span class="p">(</span><span class="s1">&#39;danger&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;strong&gt;Error!&lt;/strong&gt; Fix validation errors and try again&#39;</span><span class="p">);</span>
+            <span class="nx">galactus</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">showErrors</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">errors</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>Delete movie</p>
+
+<div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">e:</span>
+      <span class="dox_type">[Object]</span>
+      <span>information about the event</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="s1">&#39;delete&#39;</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">destroy</span><span class="p">({</span>
+            <span class="nx">wait</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">galactus</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;#movies&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">replace</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">trigger</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+                <span class="nx">galactus</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">showNotice</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;&lt;strong&gt;Success!&lt;/strong&gt; Movie &quot;&#39;</span> <span class="o">+</span> <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&quot; has been deleted&#39;</span><span class="p">);</span>
+            <span class="p">},</span>
+            <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">galactus</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">showNotice</span><span class="p">(</span><span class="s1">&#39;danger&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="title" id="title" placeholder="e.g. Day of the Jackal" value="<%- title %>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="released" class="col-sm-2 control-label">Released</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" name="released" id="released" placeholder="e.g. 2001" value="<%- released %>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="director" class="col-sm-2 control-label">Director</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="director" id="director" placeholder="e.g. Steven Speilberg" value="<%- director %>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="rating" class="col-sm-2 control-label">Rating</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="rating" id="rating" placeholder="e.g. G, PG, PG-13, R" maxlength="5" value="<%- rating %>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="starring" class="col-sm-2 control-label">Starring</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="starring" id="starring" placeholder="e.g. Steve Martin, John Belushi" value="<%- starring.join(', ') %>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="duration" class="col-sm-2 control-label">Duration</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" name="duration" id="duration" placeholder="e.g. 122 minutes" value="<%- duration %>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="genre" class="col-sm-2 control-label">Genre(s)</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="genre" id="genre" placeholder="e.g. comedy, triller, action" value="<%- genre.join(', ') %>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="synopsis" class="col-sm-2 control-label">Synopsis</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="synopsis" id="synopsis" rows="3" placeholder="summary of the movie plot"><%- synopsis %></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="trailer" class="col-sm-2 control-label">Trailer URL</label>
+        <div class="col-sm-10">
+            <input type="url" class="form-control" name="trailer" id="trailer" placeholder="e.g. https://www.archive.org" value="<%- trailer %>">
+        </div>
+    </div>
+</form>

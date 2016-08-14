@@ -1,0 +1,34 @@
+<form>
+    <div class="form-group panel">
+        <label>
+            <input type="radio" name="freshness" value="1"> Fresh
+            <img src="img/fresh.gif" width="25" height="25">
+        </label>
+        <label>
+            <input type="radio" name="freshness" value="0"> Rotten
+            <img src="img/rotten.gif" width="25" height="25">
+        </label>
+    <% if (freshTotal) { %>    
+        <div class="review-summary">
+            currently rated:
+            <img src="img/<%- freshness > 50 ? 'fresh' : 'rotten' %>.gif" width="25" height="25">
+            <%- freshness.toFixed(1) + '% (' + freshTotal + ') ' %>
+        </div>
+    <% } %>  
+    </div>
+    <div class="form-group">
+        <label for="reviewText">Enter your review</label>
+        <textarea class="form-control" rows="4" name="reviewText" id="reviewText"></textarea>
+    </div>
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="reviewName">Name</label>
+            <input type="text" name="reviewName" id="reviewName">
+        </div>
+        <div class="form-group">
+            <label for="reviewAffil">Affiliation</label>
+            <input type="text" name="reviewAffil" id="reviewAffil">
+        </div>
+    </div>
+    <button type="button" class="btn btn-success" id="review">Review Movie</button>
+</form>
